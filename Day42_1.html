@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic HTML Form</title>
+    <link rel="stylesheet" href="C:\Users\rdvraju\Desktop\Visual studio\Day42_HTML\simple_form.css">
+</head>
+<body>
+    <form>
+        <header class="headerContainer"><h1>HTML 5 Form Input Fields </h1></header>
+        <div>
+            <label for="text">First Name</label>
+            <input type="text" placeholder='Enter First Name' required>
+            <error-output class="text-error" for="text"></error-output>
+        </div>
+        <div>
+            <label for="pwd">Password</label>
+            <input type="password" placeholder='Enter Password' required>
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" placeholder='Enter Email' required>
+        </div>
+        <div>
+            <label for="url">URL</label>
+            <input type="url" placeholder='Enter URL' required>
+        </div>
+        <div>
+            <label for="number">Input Number</label>
+            <input type="number" placeholder='Enter Search Input' required>
+        </div>
+        <div>
+            <label for="tel">Contact Number</label>
+            <input type="tel" placeholder='Enter Contact Number' required>
+        </div>
+        <div>
+            <label for="search">Search Input</label>
+            <input type="search" placeholder='Search Input' required>
+        </div>
+        <div class="nativedateTimePicker">
+            <label for="party">Date and Time</label>
+            <input type="datetime-local" id="party" name="party">
+            <span class="validity"></span>
+        </div>
+        <div>
+            <label for="salary">Salary</label>
+            <input type="range" name="salary" id="salary" min="300000" max="500000" step="100" value="400000">
+            <output class="salary-output" for="salary">400000</output>
+        </div>
+        <div>
+            <button>Submit</button>
+            <button type='button' value='Cancel'>Cancel</button>
+            <input type="checkbox" unchecked="checked"> Remember me            
+            <a href="#"> Forgot password? </a>
+        </div>
+    </form>
+    <script>
+        const text=document.querySelector('#text');
+        const textError=document.querySelector('.text-error');
+        text.addEventListener('input',function(){
+            let nameRegex=RegExp('^[A-Z]{1}[a-z]{2,}$');
+            if (nameRegex.test(text.vale))
+            textError.textContent="";
+            else textError.textContent="Name is incorrect";
+            });
+
+        const salary=document.querySelector('#salary');
+        const output=document.querySelector('.salary-output');
+        output.textContent=salary.value;
+        salary.addEventListener('input',function(){
+        output.textContent=salary.value;
+        });
+    </script>
+</body>
+</html>
